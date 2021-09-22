@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Microsoft_Word 1.0</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="container_block ">
+            <!-- Верхня частина -->
+            <div class="display_top">
+                <div class="display_text">
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+
+            <!-- Середня частина -->
+            <div class="buttons">
+                <input class="button edit" type="button" value="edit">
+                <input class="button style" type="button" value="style" onclick="styleBth()">
+            </div>
+
+            <!-- Нижня частина -->
+            <div class="display_bottom">
+                <div class="edit_block hidden">
+                    <textarea class="textarea"></textarea>
+                    <div class="buttons_sec">
+                        <input class="button add" type="button" value="add" onclick="addBth()">
+                        <input class="button save" type="button" value="save">
+                    </div>
+                </div>
+
+                <div class="style_block hidden">
+                    <div class="block_style_one hidden">
+                        <form name="formSize">
+                            <h5>Font Size:</h5>
+                            <input onclick="fontSize()" type="radio" value="12px" name="size" >12px
+                            <input onclick="fontSize()" type="radio" value="14px" name="size" >14px
+                            <input onclick="fontSize()" type="radio" value="16px" name="size" checked >16px
+                            <input onclick="fontSize()" type="radio" value="18px" name="size" >18px
+                            <input onclick="fontSize()" type="radio" value="20px" name="size" >20px
+                        </form>
+                        <form name="formFamily">
+                            <h5>Font Family:</h5>
+                            <select onchange='fontFamily()'>
+                                <option value="Times New Roman">Times New Roman</option>
+                                <option value="fantasy">fantasy</option>
+                                <option value="monospace">monospace</option>
+                                <option value="sans-serif">sans-serif</option>
+                            </select>
+                        </form>
+                        <form name="formColors">
+                            <h5>Colors:</h5>
+                            <input  id="clickColor" style="margin-left: 0px;margin-top: 0px;" class="btn btn-secondary input_color_style" type="button" value="Text color">
+                            <input id="clickBg"  style="margin-left: 0px;margin-top: 0px;" class="btn btn-secondary input_color_style" type="button" value="Background color">
+                        </form>
+                        <form name="formColors">
+                            <h5>Style:</h5>
+                            <input type="checkbox" onclick="fontWeight()">bold
+                            <input type="checkbox" onclick="fontStyle()">cursive
+                        </form>
+                    </div>  
+                    <div class="block_style_two hidden">
+                        <div class="box hidden">
+                            <div class="size_cubuk orange"></div>
+                            <div class="size_cubuk red"></div>
+                            <div class="size_cubuk blue"></div>
+                            <div class="size_cubuk yellow"></div>
+                            <div class="size_cubuk black"></div>
+                            <div class="size_cubuk white"></div>
+                            <div class="size_cubuk green"></div>
+                            <div class="size_cubuk pink"></div>
+                            <div class="size_cubuk purple"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Додавання таблиці та списку -->
+        <div class="add_block hidden">
+            <form class="add_form" name="formChoose">
+                <h3>Choose what you want: <input type="button" value="back" onclick="backBtn()"> </h3>
+                <input type="radio" class="style_input" name="choose" data-create="table"onclick="chooseBtn()">table
+                <input type="radio" class="style_input" name="choose" data-create="list" onclick="chooseBtn()">list
+            </form>
+
+            <!-- table -->
+            <form name="formCreateTable" class="formCreateTable hidden">
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">CountTR</span>
+                    <input  type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="" name="countTr">
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">CountTD</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="" name="countTd">
+                </div>
+                <h4>Add style to your table: </h4>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Width of TD</span>
+                    <input id="widthTd" value="" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Height of TD</span>
+                    <input id="heightTd" value="" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="wrapp_short_forms">
+                    <div class="input-group input-group-sm mb-3" id="bord">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Weight of border</span>
+                        <input id="WeightOfBorder" value="" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputState" class="form-label plus">Type of border:</label>
+                        <select id="inputState" class="form-select type_border">
+                          <option value="solid" >solid</option>
+                          <option value="none" selected>none</option>
+                          <option value="dotted">dotted</option>
+                          <option value="double">double </option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputState" class="form-label">Color of border:</label>
+                        <select id="inputState" class="form-select color_border">
+                          <option value="red">red</option>
+                          <option value="green">green</option>
+                          <option value="brown">brown</option>
+                          <option value="purple"selected>purple</option>
+                          <option value="orange">orange</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-success" onclick="createTibleBtn()">Create table</button>
+            </form>
+
+            <!-- list -->
+            <form name="formCreateList" class="formCreateList hidden" >
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">CountLi:</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="" name="countLi">
+                </div>
+                <div class="input-group mb-3 ">
+                    <label class="input-group-text" for="inputGroupSelect01">Type of marks:</label>
+                    <select class="form-select" id="inputGroupSelect01" class="select" name="TypeOfMarks">
+                        <option class="optval" value="circle">circle</option>
+                        <option class="optval" value="disc">disc</option>
+                        <option class="optval" value="square">square</option>
+                        <option class="optval" value="none"selected>none</option>
+                    </select>
+                </div>
+
+                <button type="button" class="btn btn-success" onclick="createListBtn()">Create list</button>
+            </form>
+  
+        </div>
+    </div>
+    
+
+    <script src="main.js"></script>
+    <!--Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
